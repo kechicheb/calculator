@@ -14,14 +14,16 @@ let firstElement = "";
 let secondElement = "";
 let op = "";
 let nb = false;
-let finalResult = "";
 
+// Delete everything
 reset.onclick = () => {
   result.innerHTML = "";
   firstElement = "";
   op = "";
   nb = false;
 };
+
+// delete number
 del.onclick = () => {
   result.innerHTML = result.innerHTML.slice(0, result.innerHTML.length - 1);
 };
@@ -35,6 +37,7 @@ nbr.forEach((e) => {
   };
 });
 
+// Keep the first number and the operation
 operationBtn.forEach((e) => {
   e.onclick = (ele) => {
     if (result.innerHTML == "") {
@@ -48,11 +51,14 @@ operationBtn.forEach((e) => {
     }
   };
 });
+
+// make the Number negative
 neg.onclick = () => {
   if (parseFloat(result.innerHTML) > 0) {
     result.innerHTML = parseFloat(result.innerHTML) * -1;
   }
 };
+// The result of the calculation
 equal.onclick = (e) => {
   if (
     result.innerHTML == "/" ||
@@ -65,22 +71,19 @@ equal.onclick = (e) => {
     secondElement = result.innerHTML;
     switch (op) {
       case "*":
-        finalResult = parseFloat(firstElement) * parseFloat(secondElement);
+        result.innerHTML = parseFloat(firstElement) * parseFloat(secondElement);
         break;
       case "/":
-        finalResult = parseFloat(firstElement) / parseFloat(secondElement);
+        result.innerHTML = parseFloat(firstElement) / parseFloat(secondElement);
         break;
       case "+":
-        finalResult = parseFloat(firstElement) + parseFloat(secondElement);
+        result.innerHTML = parseFloat(firstElement) + parseFloat(secondElement);
         break;
       case "-":
-        finalResult = parseFloat(firstElement) - parseFloat(secondElement);
-        break;
-
-      default:
+        result.innerHTML = parseFloat(firstElement) - parseFloat(secondElement);
         break;
     }
-    result.innerHTML = finalResult;
+  
 
     op = "";
     firstElement = "";
