@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap");
 :root {
-  --back-color: #e6e6e6;
-  --result-color: #eeeeee;
-  --del-color: #378285;
-  --back-btn-color: #d3cccd;
-  --btn-color: #e5e4e0;
-  --black-color: #383732;
-  --border-color: #a29e96;
+  --bg-body-color: #e6e6e6; /*#17062a*/
+  --result-color: #eeeeee; /*#1e0836*/
+  --bg-row-btn-color: #d3cdcd; /*#1e0836*/
+  --bg-btn-color: #e5e4e0; /*#321b4c*/
+  --border-btn-color: #a29e96; /*#7b2291*/
+  --del-reset-color: #378285; /*#56077d*/
+  --border-del-reset-color: #24666d; /*#a923db*/
+  --bg-equal-color: #ce4030;  /*#00dfcf*/
+  --border-equal-color:#902720; /*#89e8f2*/
+  --black-color: #383732; /*#f3de60*/
   --white-color: #fff;
 }
 * {
@@ -22,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--back-color);
+  background-color: var(--bg-body-color);
 }
 .calculator {
   height: fit-content;
@@ -39,7 +42,6 @@ body {
 }
 .calculator .row:first-child h1 {
   font-size: 2.5rem;
- 
 }
 .calculator .row:not(:last-child) {
   display: flex;
@@ -59,11 +61,12 @@ body {
   -o-border-radius: 10px;
   padding: 15px;
 }
+
 .calculator .row:last-child {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
-  background-color: var(--back-btn-color);
+  background-color: var(--bg-row-btn-color);
   padding: 15px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -82,11 +85,11 @@ body {
   align-items: center;
   font-size: 25px;
   cursor: pointer;
-  background-color: var(--btn-color);
+  background-color: var(--bg-btn-color) !important;
   color: var(--black-color);
   font-weight: 900;
   border: 1px solid transparent;
-  border-bottom: 5px solid var(--border-color);
+  border-bottom: 5px solid var(--border-btn-color);
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -109,17 +112,17 @@ body {
 .reset,
 .del,
 .equal {
-  color: var(--white-color);
+  color: var(--white-color) !important;
 }
 .del,
 .reset {
-  background-color: var(--del-color) !important;
-  border-bottom-color: #24666d;
+  background-color: var(--del-reset-color) !important;
+  border-bottom-color: var(--border-del-reset-color);
 }
 .equal {
-  background-color: #ce4030 !important;
-  border-bottom-color: #902720;
-grid-column: 3 / 5;
+  background-color: var(--bg-equal-color) !important;
+  border-bottom-color: var(--border-equal-color);
+  grid-column: 3 / 5;
 }
 
 .toggle {
@@ -141,7 +144,7 @@ grid-column: 3 / 5;
   left: 3px;
   width: 20px;
   height: 20px;
-  background-color:#ce4030;
+  background-color: #ce4030;
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
