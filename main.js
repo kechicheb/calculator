@@ -36,12 +36,16 @@ nbr.forEach((e) => {
 });
 
 operationBtn.forEach((e) => {
-  e.onclick = () => {
-    firstElement = "";
-    firstElement = result.innerHTML;
-    op = e.dataset.val;
-    nb = true;
-    result.innerHTML = op;
+  e.onclick = (ele) => {
+    if (result.innerHTML == "") {
+      ele.preventDefault();
+    } else {
+      firstElement = "";
+      firstElement = result.innerHTML;
+      op = e.dataset.val;
+      nb = true;
+      result.innerHTML = op;
+    }
   };
 });
 neg.onclick = () => {
@@ -118,6 +122,7 @@ function darkMode(value) {
       "#89e8f2"
     );
     document.documentElement.style.setProperty("--black-color", "#f3de60");
+    document.documentElement.style.setProperty("--bg-toggle-color", "#1e0836");
   } else {
     document.documentElement.style.setProperty("--bg-body-color", "#e6e6e6");
     document.documentElement.style.setProperty("--result-color", "#eeeeee");
@@ -135,5 +140,9 @@ function darkMode(value) {
       "#902720"
     );
     document.documentElement.style.setProperty("--black-color", "#383732");
+    document.documentElement.style.setProperty(
+      "--bg-toggle-color",
+      "#ce40301a"
+    );
   }
 }
