@@ -25,10 +25,13 @@ reset.onclick = () => {
 
 // delete number
 del.onclick = () => {
+  fixedProblems()
   result.innerHTML = result.innerHTML.slice(0, result.innerHTML.length - 1);
 };
 nbr.forEach((e) => {
+  
   e.onclick = () => {
+    fixedProblems();
     if (nb == true) {
       result.innerHTML = "";
     }
@@ -39,6 +42,7 @@ nbr.forEach((e) => {
 
 // Keep the first number and the operation
 operationBtn.forEach((e) => {
+  fixedProblems();
   e.onclick = (ele) => {
     if (result.innerHTML == "") {
       ele.preventDefault();
@@ -60,6 +64,7 @@ neg.onclick = () => {
 };
 // The result of the calculation
 equal.onclick = (e) => {
+  fixedProblems();
   if (
     result.innerHTML == "/" ||
     result.innerHTML == "*" ||
@@ -83,7 +88,6 @@ equal.onclick = (e) => {
         result.innerHTML = parseFloat(firstElement) - parseFloat(secondElement);
         break;
     }
-  
 
     op = "";
     firstElement = "";
@@ -147,5 +151,16 @@ function darkMode(value) {
       "--bg-toggle-color",
       "#ce40301a"
     );
+  }
+}
+
+function fixedProblems() {
+  if (result.innerHTML == "infinity" || result.innerHTML == "NaN") {
+    result.innerHTML = "";
+    firstElement = "";
+    secondElement = "";
+    op = "";
+    nb = false;
+    this.preventDefault();
   }
 }
