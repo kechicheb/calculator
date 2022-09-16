@@ -21,23 +21,22 @@
 }
 ::-webkit-scrollbar {
   width: 8px;
-  height: 4px;
+  height: 4.5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--border-btn-color);
   border-radius: 100vw;
   -webkit-border-radius: 100vw;
   -moz-border-radius: 100vw;
   -ms-border-radius: 100vw;
   -o-border-radius: 100vw;
-  margin-inline: 0.2rem;
+  margin-inline: 0.3rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--del-reset-color);
   border-radius: 100vw;
-  position: absolute;
 }
 body {
   margin: 0;

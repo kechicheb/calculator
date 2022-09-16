@@ -29,8 +29,12 @@ nbr.forEach((e) => {
     if (nb == true) {
       result.innerHTML = "";
     }
-    result.innerHTML += e.textContent;
-    nb = false;
+    if (result.innerHTML == 0 && e.innerHTML == 0) {
+      result.innerHTML = e.textContent;
+    } else {
+      result.innerHTML += e.textContent;
+      nb = false;
+    }
   };
 });
 
