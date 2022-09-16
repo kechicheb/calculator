@@ -1,60 +1,62 @@
+// All Elements
 let result = document.querySelector(".calculator .result");
-let clearAll = document.querySelector(".clearAll");
-let deleteNbr = document.querySelector(".calculator .btn.delete");
-let nbr = document.querySelectorAll(".calculator .number .btn");
-let operationBtn = document.querySelectorAll(
-  ".calculator .child:nth-child(3) .btn:not(:last-child)"
-);
-operationBtn = Array.from(operationBtn);
-let same = document.querySelector(
-  ".calculator .child:nth-child(3) .btn:last-child"
-);
-let mod = document.querySelector(".calculator .mod");
-operationBtn.push(mod);
+let operationBtn = document.querySelectorAll(".calculator .op");
+let nbr = document.querySelectorAll(".calculator  .btn.nbr");
+let reset = document.querySelector(".reset");
+let del = document.querySelector(".calculator .btn.del");
+let equal = document.querySelector(".calculator .equal");
+
+// variables
 let firstElement = "";
+let secondElement = "";
 let op = "";
-let nb = 0;
-clearAll.onclick = () => {
+let nb = false;
+
+reset.onclick = () => {
   result.innerHTML = "";
   firstElement = "";
   op = "";
-  nb = 0;
+  nb = false;
 };
-deleteNbr.onclick = () => {
+del.onclick = () => {
   result.innerHTML = result.innerHTML.slice(0, result.innerHTML.length - 1);
 };
 nbr.forEach((e) => {
   e.onclick = () => {
-    if (nb != 0) {
+    if (nb == true) {
       result.innerHTML = "";
     }
     result.innerHTML += e.textContent;
-    nb = 0;
+    nb = false;
   };
 });
 
 operationBtn.forEach((e) => {
   e.onclick = () => {
-    firstElement = "";
-    firstElement = result.innerHTML;
-    op = e.dataset.val;
-    nb = nb + 1;
+    if (op == "-" && result.innerHTML == "") {
+      result.innerHTML += "-";
+      nb = false;
+    } else {
+      firstElement = "";
+      firstElement = result.innerHTML;
+      op = e.dataset.val;
+      nb = true;
+    }
   };
 });
 
-same.onclick = () => {
+equal.onclick = () => {
+  secondElement = result.innerHTML;
   if (op == "*") {
-    result.innerHTML = parseFloat(firstElement) * parseFloat(result.innerHTML);
+    result.innerHTML = parseFloat(firstElement) * parseFloat(secondElement);
   } else if (op == "/") {
-    result.innerHTML = parseFloat(firstElement) / parseFloat(result.innerHTML);
+    result.innerHTML = parseFloat(firstElement) / parseFloat(secondElement);
   } else if (op == "+") {
-    result.innerHTML = parseFloat(firstElement) + parseFloat(result.innerHTML);
+    result.innerHTML = parseFloat(firstElement) + parseFloat(secondElement);
   } else if (op == "-") {
-    result.innerHTML = parseFloat(firstElement) - parseFloat(result.innerHTML);
-  } else if (op == "%") {
-    result.innerHTML = parseFloat(firstElement) % parseFloat(result.innerHTML);
+    result.innerHTML = parseFloat(firstElement) - parseFloat(secondElement);
   }
   op = "";
   firstElement = "";
-  nb = 0;
+  nb = false;
 };
