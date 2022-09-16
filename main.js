@@ -1,5 +1,5 @@
 // All Elements
-let result = document.querySelector(".calculator .result");
+let result = document.querySelector(".calculator .result span");
 let operationBtn = document.querySelectorAll(".calculator .op");
 let nbr = document.querySelectorAll(".calculator .btn.nbr");
 let reset = document.querySelector(".reset");
@@ -41,8 +41,9 @@ operationBtn.forEach((e) => {
     if (result.innerHTML == "") {
       ele.preventDefault();
     } else {
-      firstElement = "";
-      firstElement = result.innerHTML;
+      if (op == "") {
+        firstElement = result.innerHTML;
+      }
       op = e.dataset.val;
       nb = true;
       result.innerHTML = op;

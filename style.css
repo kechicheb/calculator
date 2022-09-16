@@ -7,17 +7,37 @@
   --border-btn-color: #a29e96; /*#7b2291*/
   --del-reset-color: #378285; /*#56077d*/
   --border-del-reset-color: #24666d; /*#a923db*/
-  --bg-equal-color: #ce4030;  /*#00dfcf*/
-  --border-equal-color:#902720; /*#89e8f2*/
+  --bg-equal-color: #ce4030; /*#00dfcf*/
+  --border-equal-color: #902720; /*#89e8f2*/
   --black-color: #383732; /*#f3de60*/
   --white-color: #fff;
-  --bg-toggle-color:#ce40301a;
+  --bg-toggle-color: #ce40301a;
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   user-select: none;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 100vw;
+  -webkit-border-radius: 100vw;
+  -moz-border-radius: 100vw;
+  -ms-border-radius: 100vw;
+  -o-border-radius: 100vw;
+  margin-inline: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--del-reset-color);
+  border-radius: 100vw;
+  position: absolute;
 }
 body {
   margin: 0;
@@ -41,14 +61,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
 }
- .row, .btn {
-  transition: color 0.3s ,background 0.3s ;
-  -webkit-transition: color 0.3s ,background 0.3s ;
-  -moz-transition: color 0.3s ,background 0.3s ;
-  -ms-transition: color 0.3s ,background 0.3s ;
-  -o-transition: color 0.3s ,background 0.3s ;
+.row,
+.btn {
+  transition: color 0.3s, background 0.3s;
+  -webkit-transition: color 0.3s, background 0.3s;
+  -moz-transition: color 0.3s, background 0.3s;
+  -ms-transition: color 0.3s, background 0.3s;
+  -o-transition: color 0.3s, background 0.3s;
 }
 .calculator .row:first-child {
   height: 35px;
@@ -65,7 +85,6 @@ body {
 .calculator .result.row {
   background-color: var(--result-color);
   font-size: 2rem;
-  justify-content: flex-end;
   height: 80px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -73,6 +92,13 @@ body {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   padding: 15px;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.calculator .result.row span {
+  text-align: end;
+  flex: 1;
 }
 
 .calculator .row:last-child {
@@ -108,7 +134,6 @@ body {
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-
 }
 
 .btn:active {
