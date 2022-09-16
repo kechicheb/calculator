@@ -29,8 +29,12 @@ nbr.forEach((e) => {
     if (nb == true) {
       result.innerHTML = "";
     }
-    if (result.innerHTML == 0 && e.innerHTML == 0 && result.innerHTML.length >=1) {
-      result.innerHTML =result.innerHTML;
+    if (
+      result.innerHTML == 0 &&
+      e.innerHTML == 0 &&
+      result.innerHTML.length >= 1
+    ) {
+      result.innerHTML = result.innerHTML;
     } else {
       result.innerHTML += e.textContent;
       nb = false;
@@ -55,10 +59,9 @@ operationBtn.forEach((e) => {
   };
 });
 
-// make the Number negative
+// Make the Number negative
 neg.onclick = () => {
- 
-    result.innerHTML = parseFloat(result.innerHTML) * -1;
+  result.innerHTML = parseFloat(result.innerHTML) * -1;
 };
 // The result of the calculation
 equal.onclick = (e) => {
@@ -106,7 +109,7 @@ toggle.addEventListener("click", () => {
     darkMode(localStorage.getItem("active"));
   }
 });
-
+// Toggle Dark  Mode With Local Storage
 function darkMode(value) {
   if (value == "dark") {
     span.classList.add("active");
