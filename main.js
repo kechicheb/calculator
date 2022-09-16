@@ -16,20 +16,14 @@ let op = "";
 let nb = false;
 
 // Delete everything
-reset.onclick = () => {
-  result.innerHTML = "";
-  firstElement = "";
-  op = "";
-  nb = false;
-};
+reset.addEventListener("click", resetAll);
 
 // delete number
 del.onclick = () => {
-  fixedProblems()
+  fixedProblems();
   result.innerHTML = result.innerHTML.slice(0, result.innerHTML.length - 1);
 };
 nbr.forEach((e) => {
-  
   e.onclick = () => {
     fixedProblems();
     if (nb == true) {
@@ -88,7 +82,6 @@ equal.onclick = (e) => {
         result.innerHTML = parseFloat(firstElement) - parseFloat(secondElement);
         break;
     }
-
     op = "";
     firstElement = "";
     nb = false;
@@ -155,12 +148,14 @@ function darkMode(value) {
 }
 
 function fixedProblems() {
-  if (result.innerHTML == "infinity" || result.innerHTML == "NaN") {
-    result.innerHTML = "";
-    firstElement = "";
-    secondElement = "";
-    op = "";
-    nb = false;
-    this.preventDefault();
+  if (result.innerHTML == "Infinity" || result.innerHTML == "NaN") {
+    resetAll();
   }
+}
+function resetAll() {
+  result.innerHTML = "";
+  firstElement = "";
+  secondElement = "";
+  op = "";
+  nb = false;
 }
