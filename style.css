@@ -96,11 +96,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 1.2rem;
   cursor: pointer;
   background-color: var(--bg-btn-color) !important;
   color: var(--black-color);
-  font-weight: 900;
+  font-weight: 600;
   border: 1px solid transparent;
   border-bottom: 5px solid var(--border-btn-color);
   border-radius: 8px;
@@ -109,6 +109,9 @@ body {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
 
+}
+.btn.op ,.equal{
+  font-size: 1.4rem;
 }
 .btn:active {
   transform: translateY(3px);
