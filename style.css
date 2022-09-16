@@ -96,7 +96,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   cursor: pointer;
   background-color: var(--bg-btn-color) !important;
   color: var(--black-color);
@@ -110,9 +110,7 @@ body {
   -o-border-radius: 8px;
 
 }
-.btn.op ,.equal{
-  font-size: 1.4rem;
-}
+
 .btn:active {
   transform: translateY(3px);
   border-bottom: 0px;
