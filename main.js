@@ -57,9 +57,8 @@ operationBtn.forEach((e) => {
 
 // make the Number negative
 neg.onclick = () => {
-  if (parseFloat(result.innerHTML) > 0) {
+ 
     result.innerHTML = parseFloat(result.innerHTML) * -1;
-  }
 };
 // The result of the calculation
 equal.onclick = (e) => {
