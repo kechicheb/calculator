@@ -29,10 +29,12 @@ nbr.forEach((e) => {
     if (nb == true) {
       result.innerHTML = "";
     }
-
-      result.innerHTML += e.textContent;
-      nb = false;
-    
+    result.innerHTML += e.textContent;
+    let myNumber = result.innerHTML;
+    nb = false;
+    if (/^0+/gi.test(myNumber)) {
+      result.innerHTML = myNumber.toString().replace(/(^0+)/gi, "0");
+    }
   };
 });
 
